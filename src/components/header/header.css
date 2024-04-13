@@ -17,13 +17,19 @@
     align-items: center;
 }
 
-.header-logo {
-    font-size: 30px;
-    font-weight: bold;
-    color: var(--white-color);
-    text-decoration: underline;
+.top-logo {
+  height: 85%;
+  width: 100px;
+  position: relative;
+  right: -27px;
 }
-
+.cart-header{
+  font-size: 40px;
+  color: chartreuse;
+  margin: 0 20px;
+  cursor: pointer;
+  display: inline-block;
+}
 .header-menu {
     display: none;
 }
@@ -38,7 +44,9 @@
 .nav-links {
     display: flex;
     align-items: center;
-}
+    flex-direction: row-reverse;
+
+  }
 
 .nav-link {
     margin: 0 12px;
@@ -112,16 +120,17 @@
 
 /* user info for lgined */
 .header-right-info-user,.continaruser{
-  height: 100%;
   display: flex;
-  align-items: center;
+  flex-direction: column;
   justify-content: center;
+  align-items: center;
   position: relative;
 }
 .user-info-header{
   font-size: 21px;
   font-weight: 500;
   color: aliceblue;
+  margin: 0  0  0 20px;
 }
 .image-header-info{
   width: 40px;

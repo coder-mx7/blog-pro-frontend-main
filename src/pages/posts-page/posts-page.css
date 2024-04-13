@@ -1,7 +1,7 @@
 .posts-page {
     display: flex;
     align-items: flex-start;
-    padding: 30px;
+    padding: 0px;
 }
 
 /* Media Queries */

@@ -2,22 +2,26 @@ import { useParams, Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import AddComment from "../../components/comments/AddComment";
 import CommentList from "../../components/comments/CommentList";
-import { posts } from "../../dummyData";
 import "./post-details.css";
 import UpdatePostModal from "./UpdatePostModal";
 import { toast } from "react-toastify";
 import swal from "sweetalert";
+import { getpostbyid } from "../../redux/apicalls/postApiCalls";
+import { useDispatch, useSelector } from "react-redux";
 
 const PostDetails = () => {
   const { id } = useParams();
-  const post = posts.find((p) => p._id === +id);
-
+  
   const [updatePost, setUpdatePost] = useState(false);
   const [file, setFile] = useState(null);
-
+  
+  const { post } = useSelector((state) => state.post);
+  const Dispatch = useDispatch();
+  
   useEffect(() => {
+    Dispatch(getpostbyid(id));
     window.scrollTo(0, 0);
-  }, []);
+  },[])
 
   // Update Image Submit Handler
   const updateImageSubmitHandler = (e) => {
@@ -45,11 +49,10 @@ const PostDetails = () => {
       }
     });
   };
-
   return (
     <div className="post-details">
       <div className="post-details-image-wrapper">
-        <img src={file ? URL.createObjectURL(file) : post.image} alt="" className="post-details-image" />
+        <img src={file ? URL.createObjectURL(file) : post?.image?.url} alt="" className="post-details-image" />
         <form onSubmit={updateImageSubmitHandler} className="update-post-image-form">
           <label className="update-post-image" htmlFor="file">
             <i className="bi bi-image-fill"></i> select new image
@@ -64,29 +67,26 @@ const PostDetails = () => {
           <button type="submit">upload</button>
         </form>
       </div>
-      <h1 className="post-details-title">{post.title}</h1>
+      <h1 className="post-details-title">{post?.title}</h1>
       <div className="post-details-user-info">
-        <img src={post.user.image} alt="" className="post-details-user-image" />
+        <img src={post?.user?.image} alt="" className="post-details-user-image" />
         <div className="post-details-user">
           <strong>
-            <Link to="/profile/1">{post.user.username}</Link>
+            <Link to="/profile/1">{post?.user?.username}</Link>
           </strong>
-          <span>{post.createdAt}</span>
+          <span>{post?.createdAt}</span>
+          <div className="post-itme-date">
+            {new Date(post?.createdAt).toDateString()}
+          </div>
         </div>
       </div>
       <p className="post-details-description">
-        {post.description} ... Lorem ipsum dolor sit amet consectetur
-        adipisicing elit. Incidunt quis a omnis aut sit earum atque eveniet
-        ratione sint animi illo id accusamus obcaecati dolore voluptatibus
-        aperiam qui, provident fuga? Lorem ipsum dolor sit amet consectetur,
-        adipisicing elit. Quibusdam neque odit soluta? Fugiat, dolores!
-        Laboriosam rem quod, explicabo similique aliquam unde sed vel
-        distinctio, fugiat ab aperiam odio nesciunt quas?
+        {post?.description} 
       </p>
       <div className="post-details-icon-wrapper">
         <div>
-          <i className="bi bi-hand-thumbs-up"></i>
-          <small>{post.likes.length} likes</small>
+        <i class="bi bi-suit-heart-fill"></i>
+          <small>{post?.likes?.length} اعجابات</small>
         </div>
         <div>
           <i
@@ -97,7 +97,7 @@ const PostDetails = () => {
         </div>
       </div>
       <AddComment />
-      <CommentList />
+      <CommentList comments={post?.comments} />
       {updatePost && (
         <UpdatePostModal post={post} setUpdatePost={setUpdatePost} />
       )}

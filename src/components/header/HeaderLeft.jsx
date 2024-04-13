@@ -1,10 +1,10 @@
 import { Link } from "react-router-dom";
-
+import logo from "../../images/logo.png"
 const HeaderLeft = ({ setToggle, toggle }) => {
   return (
     <div className="header-left">
       <Link to="/" className="header-logo">
-        <strong>BLOG</strong> <i className="bi bi-pencil"></i>
+        <img className="top-logo" src={logo} alt="" srcset="" />
       </Link>
       <div onClick={() => setToggle((prev) => !prev)} className="header-menu">
         {toggle ? (

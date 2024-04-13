@@ -31,10 +31,10 @@ const UsersTable = () => {
         <table className="table">
           <thead>
             <tr>
-              <th>Count</th>
-              <th>User</th>
-              <th>Email</th>
-              <th>Action</th>
+              <th>عدد</th>
+              <th>الاسم</th>
+              <th>الايميل</th>
+              <th>تعديل</th>
             </tr>
           </thead>
           <tbody>

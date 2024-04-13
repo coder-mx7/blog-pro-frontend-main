@@ -1,10 +1,11 @@
+
 :root {
   --main-color: #efefef;
   --primary-color: #1d2d3d;
   --secondary-color:#495e74 ;
   --gray-color: #778697;
   --dark-color: #292b2c;
-  --blue-color: #0275d8;
+  --blue-color: #f67280;
   --green-color: #27ae60;
   --green-sea-color: #16a085;
   --pumpkin-color: #d35400;
@@ -55,10 +56,11 @@ html::-webkit-scrollbar {
 }
 
 html::-webkit-scrollbar-track {
-  background-color: rgb(187, 179, 179);
+  background-color: #f1b0b0;
 }
 
 html::-webkit-scrollbar-thumb {
-  background-color: var(--dark-color);
+  background-color: #fd0a54;
   border-radius: 15px;
+  border: 1px solid black;
 }

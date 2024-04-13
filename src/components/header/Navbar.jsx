@@ -9,23 +9,23 @@ const Navbar = ({ toggle, setToggle }) => {
       style={{ clipPath: toggle && "polygon(0 0, 100% 0, 100% 100%, 0 100%)" }}
       className="navbar"
     >
-      <ul className="nav-links">
+      <ul  className="nav-links">
         <Link onClick={() => setToggle(false)} to="/" className="nav-link">
+          رئيسية
           <i className="bi bi-house"></i>
-          Home
         </Link>
         <Link onClick={() => setToggle(false)} to="/posts" className="nav-link">
+          منتجات
           <i className="bi bi-stickies"></i>
-          Posts
         </Link>
-        {user &&
+        {user?.isAdmin &&
         <Link
           onClick={() => setToggle(false)}
           to="/posts/create"
           className="nav-link"
         >
-          <i className="bi bi-journal-plus"></i>
-          Create
+          انشاء منتج
+          <i class="bi bi-house-add-fill"></i>
         </Link>
       }
         {user?.isAdmin &&
@@ -34,9 +34,16 @@ const Navbar = ({ toggle, setToggle }) => {
           to="/admin-dashboard"
           className="nav-link"
         >
+          صفحة الادمين
           <i className="bi bi-person-check"></i>
-          Admin Dashboard
         </Link>}
+        <Link
+          onClick={() => setToggle(false)}
+          to="/about"
+          className="nav-link"
+        >
+          معلومات عنا 
+        </Link>
       </ul>
     </nav>
   );

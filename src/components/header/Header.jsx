@@ -8,7 +8,7 @@ const Header = () => {
   const [toggle, setToggle] = useState(false);
 
   return (
-    <header className="header">
+    <header dir="ltr" className="header">
       <HeaderLeft toggle={toggle} setToggle={setToggle} />
       <Navbar toggle={toggle} setToggle={setToggle} />
       <HeaderRight />

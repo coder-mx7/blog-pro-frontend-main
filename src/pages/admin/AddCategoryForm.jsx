@@ -14,20 +14,20 @@ const AddCategoryForm = () => {
 
   return (
     <div className="add-category">
-      <h6 className="add-category-title">Add New Category</h6>
+      <h6 className="add-category-title">اضافة نوع جديد</h6>
       <form onSubmit={formSubmitHandler} className="add-category-form">
         <div className="add-category-form-group">
-          <label htmlFor="title">Category Title</label>
+          <label htmlFor="title">اسم النوع</label>
           <input
             value={title}
             onChange={(e) => setTitle(e.target.value)}
             type="text"
             id="title"
-            placeholder="Enter Category Title"
+            placeholder="اكتب اسم النوع الجديد "
           />
         </div>
         <button type="submit" className="add-category-btn">
-          Add
+          اضافة الان
         </button>
       </form>
     </div>

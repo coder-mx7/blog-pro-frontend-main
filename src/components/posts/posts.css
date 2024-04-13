@@ -1,123 +1,179 @@
 .post-list {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    flex: 9;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  flex: 12;
 }
 
 .post-item {
-    width: 100%;
-    background-color: rgb(244, 244, 244);
-    margin-bottom: 40px;
-    padding: 15px;
-    border-radius: 5px;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: space-between;
-    border: 1px solid rgb(183, 179, 179);
+  width: 150px;
+  height: 300px;
+  margin-bottom: 80px;
+  margin: 10px 5px;
+justify-content: start;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid rgb(0, 0, 0);
+  background-color: hotpink;
+  position: relative;
+  overflow: hidden;
 }
 
 .post-item-image-wrapper {
-    width: 100%;
-    margin-bottom: 15px;
+  width: auto;
+  top: 0;
 }
 
 .post-itme-image {
-   width: 100%;
-   height: 300px;
-   object-fit: contain;
-   border-radius: 5px;
+  height: 160px;
+  border-radius: 5px;
+  position: relative;  
+  object-fit: cover;
+
 }
 
 .post-item-info-wrapper {
-    width: 100%;
+  width: 100%;
 }
 
 .post-item-info {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin: 5px;
-    border-bottom: 1px solid var(--gray-color);
-    padding-bottom: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--gray-color);
 }
 
-.post-item-author strong {
-    color: var(--green-sea-color);
-    font-size: 18px;
-}
 
-.post-item-author span {
-    font-size: 17px;
-    font-weight: 500;
-    color: var(--primary-color);
-    text-transform: capitalize;
-}
 
-.post-itme-date {
-    font-weight: bold;
-    font-size: 14px;
-    color: var(--green-sea-color);
-}
 
 .post-item-details {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid black;
+
 }
 
 .post-item-title {
-    color: var(--primary-color);
-    text-align: center;
-    font-size: 25px;
-    font-weight: 700;
-    text-transform: capitalize;
+  color: var(--primary-color);
+  text-align: start;
+  font-size: 14px;
+  font-weight: bold;
+  text-transform: capitalize;
 }
 
 .post-item-category {
-    background-color: var(--pumpkin-color);
-    color: white;
-    padding: 2px 7px;
-    border-radius: 15px;
-    font-size: 15px;
-    font-weight: bold;
-    cursor: pointer;
+  background-color: var(--pumpkin-color);
+  color: white;
+  padding: 1.3px 3px;
+  border-radius: 15px;
+  font-size: 10px;
+  font-weight: bolder;
+  cursor: pointer;
+  position: absolute;
+  z-index: 1000;
+  top: 3px;
+  left: 6px;
+
 }
 
+
+.post-item-pric {
+  font-size: 15.5px;
+  font-weight: bold;
+  color: black;
+  display: flex;
+}
+
+.post-item-pricFake {
+  font-size: 12px;
+  color: rgb(58, 57, 57);
+  text-decoration: line-through; /* هذه الخاصية تضيف خط في الوسط للنص */
+  text-decoration-style: wavy; /* يحدد نمط الخط (هنا استخدمت مائل كمثال) */
+  text-decoration-color: rgb(255, 8, 0); /* يحدد لون الخط */
+}
+.post-item-pric{
+  display: flex;
+  justify-content: space-between;
+}
 .post-item-description {
-    font-size: 17px;
-    line-height: 1.9;
-    color: var(--secondary-color);
-    font-weight: 500;
-    margin: 10px 0;
-    padding: 5px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
+  font-size: 13px;
+  line-height: 1;
+  color: var(--secondary-color);
+  font-weight: 500;
+  margin: 3px 0;
+  overflow: hidden;
+  text-overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
 }
 
 .post-item-link {
-    background-color: var(--green-color);
-    color: var(--white-color);
-    width: 100%;
-    display: block;
-    text-align: center;
-    font-size: 21px;
-    border-radius: 5px;
-    padding:5px;
+  background-color: var(--green-color);
+  color: var(--white-color);
+  width: 90%;
+  display: block;
+  text-align: start;
+  font-size: 13px;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+.flex {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+@media (max-width: 920px) {
+  .post-item {
+    padding: 10px;
+  }
+
+  .post-itme-image {
+    object-fit: cover;
+  }
 }
 
 @media (max-width: 720px) {
-    .post-item {
-        padding: 10px;
-    }
+  .post-item {
+    padding: 10px;
+  }
 
-    .post-itme-image {
-        object-fit: cover;
-    }
+  .post-itme-image {
+    object-fit: cover;
+  }
+}
+
+@media (max-width: 620px) {
+  .post-item {
+    padding: 10px;
+  }
+
+  .post-itme-image {
+    object-fit: cover;
+  }
+}
+
+@media (max-width: 540px) {
+  .post-item {
+  }
+
+  .post-itme-image {
+    object-fit: cover;
+  }
+}
+
+@media (max-width: 480px) {
+  .post-item {
+    padding: 10px;
+  }
+
+  .post-itme-image {
+    object-fit: cover;
+  }
 }

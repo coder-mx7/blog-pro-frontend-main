@@ -11,7 +11,7 @@ const HeaderRight = () => {
   const formSubmitHandler = () => {
     dispath(logautuser());
     setdropdown(false);
-    nav("/")
+    nav("/");
   };
 
   return (
@@ -23,12 +23,12 @@ const HeaderRight = () => {
               onClick={() => setdropdown((prv) => !prv)}
               className="continaruser"
             >
-              <span className="user-info-header">{user.username}</span>
               <img
                 src={user.profilePhoto.url}
                 alt="user"
                 className="image-header-info"
               />
+              <span className="user-info-header">{user.username}</span>
             </div>
             {dropdown && (
               <div className="header-drop">

@@ -1,21 +1,28 @@
-import PostList from "../../components/posts/PostList";
 import Sidebar from "../../components/sidebar/Sidebar";
 import { Link } from "react-router-dom";
 import "./home.css";
-import { posts } from "../../dummyData";
-
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import {  getposts } from "../../redux/apicalls/postApiCalls";
+import PostListHome from "../../components/posts/PostListHome";
 const Home = () => {
+  const { posts } = useSelector((state) => state.post);
+  const Dispatch = useDispatch();
+  useEffect(() => {
+    Dispatch(getposts());
+  }, []); // تمرير مصفوفة فارغة كثاني معلم
+  
   return (
+
     <section className="home">
       <div className="home-hearo-header">
         <div className="home-hero-header-layout">
-          <h1 className="home-title">Welcome to Blog</h1>
         </div>
       </div>
-      <div className="home-latest-post">Latest Posts</div>
       <div className="home-container">
-        <PostList posts={posts.slice(0, 3)} />
-        <Sidebar />
+        {/* <Sidebar /> */}
+      <div className="home-latest-post">اخر منتجاتنا</div>
+        <PostListHome posts={posts} />
       </div>
       <div className="home-see-posts-link">
         <Link className="home-link" to="/posts">

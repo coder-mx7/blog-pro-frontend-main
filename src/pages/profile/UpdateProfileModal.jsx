@@ -2,7 +2,6 @@ import "./update-profile-modal.css";
 import {  ToastContainer } from "react-toastify";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { profileaction } from "../../redux/slices/profileSlices";
 import { updateuser } from "../../redux/apicalls/profileapicalls";
 
 const UpdateProfileModal = ({ setUpdateProfile, profile }) => {
@@ -17,11 +16,17 @@ const UpdateProfileModal = ({ setUpdateProfile, profile }) => {
 
     const updatedUser = { username, bio };
     if (password.trim() !== "") {
-      updatedUser.password = password;
+      updatedUser.passwored = password;
     }
-    Dispatch(updateuser(profile._id,updatedUser))
-    console.log(updatedUser);
-    setUpdateProfile(false)
+    try {
+      Dispatch(updateuser(profile?._id, updatedUser));
+      console.log(updatedUser);
+      setUpdateProfile(false);
+      window.location.reload(); // إعادة تحميل الصفحة بعد اكتمال العملية بنجاح
+    } catch (error) {
+      console.error("Error updating user:", error);
+      // يمكنك إضافة إجراءات إضافية للتعامل مع حالة الخطأ هنا
+    }
   };
 
   return (

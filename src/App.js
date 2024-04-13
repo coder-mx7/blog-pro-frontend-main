@@ -11,6 +11,7 @@ import ResetPassword from "./pages/forms/ResetPassword";
 import Profile from "./pages/profile/Profile";
 import CreatePost from "./pages/create-post/CreatePost";
 import AdminDashboard from "./pages/admin/AdminDashboard";
+import CartPage from "./pages/posts-page/cartsPage";
 import UsersTable from "./pages/admin/UsersTable";
 import PostsTable from "./pages/admin/PostsTable";
 import CategoriesTable from "./pages/admin/CategoriesTable";
@@ -32,6 +33,7 @@ function App() {
         <Route path="/forgot-password" element={<ForgotPassword />} />
         <Route path="/reset-password" element={<ResetPassword />} />
         <Route path="/profile/:id" element={<Profile />} />
+        <Route path="/cart" element={<CartPage />} />
         <Route path="posts">
           <Route index element={<PostsPage />} />
           <Route path="create" element={user?<CreatePost />:<Navigate to={"/"} />} />

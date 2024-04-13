@@ -1,6 +1,6 @@
 .sidebar {
     flex: 3;
-    margin-left: 20px;
+    margin: 20px;
 }
 
 .sidebar-title {
@@ -8,12 +8,14 @@
     text-align: center;
     padding: 5px;
     font-size: 24px;
-    border-top: 1px solid var(--primary-color);
-    border-bottom: 1px solid var(--primary-color);
+    border-bottom: 1px solid black;
+    border-top:  1px solid black;
 }
 
 .sidebar-links {
     padding: 10px;
+    display: flex;
+    flex-direction: column;
 }
 
 .sidebar-link{
@@ -36,18 +38,7 @@
     color: var(--white-color);
 }
 
-.sidebar-link:after {
-   content: "";
-   width: 7px;
-   height: 7px;
-   border-radius: 50%;
-   position: absolute;
-   left: 15px;
-   top: 0;
-   bottom: 0;
-   margin: auto;
-   background-color: var(--white-color);
-}
+
 
 /* Media Queries */
 @media (max-width: 990px) {

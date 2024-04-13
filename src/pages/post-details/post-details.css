@@ -103,6 +103,14 @@
         width: 100%;
     }
 }
+@media (max-width: 720px) {
+  .post-details {
+      width: 100%;
+  }
+  .post-details-image {
+    width: 100%;
+}
+}
 
 @media (max-width: 520px) {
     .post-details {

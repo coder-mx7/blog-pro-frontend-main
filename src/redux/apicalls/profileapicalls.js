@@ -50,9 +50,10 @@ export function uploadprofilephoto(newphoto) {
 }
 
 export function updateuser(userId, profile) {
+
   return async (dispath, getState) => {
     try {
-      const { data } = await request.post(
+      const { data } = await request.put(
         `api/users/profile/${userId}`,
         profile,
         {
@@ -67,6 +68,7 @@ export function updateuser(userId, profile) {
       console.log(user);
       user.username = data?.username;
       localStorage.setItem("infouser", JSON.stringify(user));
+
     } catch (error) {
       // console.log(error);
       // toast.error(error);

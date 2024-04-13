@@ -2,8 +2,10 @@ import { useState } from "react";
 import "./comment-list.css";
 import UpdateCommentModal from "./UpdateCommentModal";
 import swal from "sweetalert";
+import { formatDistanceToNow } from 'date-fns';
+import { ar } from 'date-fns/locale'; // إذا كنت تريد استخدام التواريخ باللغة العربية
 
-const CommentList = () => {
+const CommentList = ({comments}) => {
   const [updateComment, setUpdateComment] = useState(false);
 
   // Delete Comment Handler
@@ -26,10 +28,12 @@ const CommentList = () => {
   };
 
   return (
+
     <div className="comment-list">
-      <h4 className="comment-list-count">2 Comments</h4>
-      {[1, 2].map((comment) => (
-        <div key={comment} className="comment-item">
+      <h4 className="comment-list-count">تقيمات المنتج ({comments?.length}) </h4>
+      {comments?.map((comment) => (
+        
+        <div key={comment?._id} className="comment-item">
           <div className="comment-item-info">
             <div className="comment-item-user-info">
               <img
@@ -37,11 +41,11 @@ const CommentList = () => {
                 alt=""
                 className="comment-item-user-photo"
               />
-              <span className="comment-item-username">Youssef Abbas</span>
+              <span className="comment-item-username"> {comment?.username} </span>
             </div>
-            <div className="comment-item-time">4 hours ago</div>
+            {/* <div className="comment-item-time">{formatDistanceToNow(new Date(comment?.createdAt), { locale: ar })}</div> */}
           </div>
-          <p className="comment-item-text">this is so great</p>
+          <p className="comment-item-text">{comment?.text}</p>
           <div className="comment-item-icon-wrapper">
             <i
               onClick={() => setUpdateComment(true)}

@@ -1,20 +1,22 @@
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import PostList from "../../components/posts/PostList";
-import { posts } from "../../dummyData";
 import "./category.css";
-
+import { useDispatch, useSelector } from "react-redux";
+import { getpostcategorts } from "../../redux/apicalls/postApiCalls";
 const Category = () => {
     const { category } = useParams();
-
+    const Dispatch = useDispatch();
+    
+    const { postcate } = useSelector((state) => state.post);
     useEffect(() => {
-      window.scrollTo(0,0);
+      Dispatch(getpostcategorts(category));
+      window.scrollTo(0, 0);
     }, []);
-
     return ( 
     <div className="category">
-        <h1 className="category-title">Posts based on {category}</h1>
-        <PostList posts={posts} />
+        <h1 className="category-title">Product based on {category}</h1>
+        <PostList posts={postcate?.data} />
     </div> );
 }
  

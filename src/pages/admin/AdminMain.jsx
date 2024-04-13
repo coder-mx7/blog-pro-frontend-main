@@ -6,11 +6,11 @@ const AdminMain = () => {
     <div className="admin-main">
       <div className="admin-main-header">
         <div className="admin-main-card">
-          <h5 className="admin-card-title">Users</h5>
+          <h5 className="admin-card-title">حسبات</h5>
           <div className="admin-card-count">120</div>
           <div className="admin-card-link-wrapper">
             <Link to="/admin-dashboard/users-table" className="admin-card-link">
-              See all users
+              جميع الحسبات المسجلة 
             </Link>
             <div className="admin-card-icon">
               <i className="bi bi-person"></i>
@@ -18,11 +18,11 @@ const AdminMain = () => {
           </div>
         </div>
         <div className="admin-main-card">
-          <h5 className="admin-card-title">Posts</h5>
+          <h5 className="admin-card-title">المنتجات</h5>
           <div className="admin-card-count">210</div>
           <div className="admin-card-link-wrapper">
             <Link to="/admin-dashboard/posts-table" className="admin-card-link">
-              See all posts
+              جميع المنتجات
             </Link>
             <div className="admin-card-icon">
               <i className="bi bi-file-post"></i>
@@ -30,14 +30,14 @@ const AdminMain = () => {
           </div>
         </div>
         <div className="admin-main-card">
-          <h5 className="admin-card-title">Categories</h5>
+          <h5 className="admin-card-title">الانواع</h5>
           <div className="admin-card-count">10</div>
           <div className="admin-card-link-wrapper">
             <Link
               to="/admin-dashboard/categories-table"
               className="admin-card-link"
             >
-              See all categories
+              جميع الانواع 
             </Link>
             <div className="admin-card-icon">
               <i className="bi bi-tag-fill"></i>
@@ -45,14 +45,14 @@ const AdminMain = () => {
           </div>
         </div>
         <div className="admin-main-card">
-          <h5 className="admin-card-title">Comments</h5>
+          <h5 className="admin-card-title">تقيمات</h5>
           <div className="admin-card-count">44</div>
           <div className="admin-card-link-wrapper">
             <Link
               to="/admin-dashboard/comments-table"
               className="admin-card-link"
             >
-              See all comments
+              جميع التقيمات 
             </Link>
             <div className="admin-card-icon">
               <i className="bi bi-chat-left-text"></i>
