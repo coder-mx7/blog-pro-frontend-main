@@ -1,5 +1,5 @@
 .post-details {
-    width: 800px;
+    width: 85vh;
     margin: auto;
     padding: 20px;
 }
@@ -8,7 +8,11 @@
     height: 400px;
     margin-bottom: 30px;
 }
-
+.contenardetails{
+  display: flex;
+  flex-direction: row-reverse;
+  height: max-content;
+}
 .post-details-image {
     width: 100%;
     height: 100%;

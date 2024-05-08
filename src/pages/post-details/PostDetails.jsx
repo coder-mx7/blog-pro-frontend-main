@@ -6,7 +6,7 @@ import "./post-details.css";
 import UpdatePostModal from "./UpdatePostModal";
 import { toast } from "react-toastify";
 import swal from "sweetalert";
-import { getpostbyid } from "../../redux/apicalls/postApiCalls";
+import { deletedproduct, getpostbyid } from "../../redux/apicalls/postApiCalls";
 import { useDispatch, useSelector } from "react-redux";
 
 const PostDetails = () => {
@@ -26,21 +26,22 @@ const PostDetails = () => {
   // Update Image Submit Handler
   const updateImageSubmitHandler = (e) => {
     e.preventDefault();
-    if(!file) return toast.warning("there is no file!");
+    !file ? toast.success("يتم الان رفع الصورة في الموقع ") : toast.warning("لم تقدم باختيار أي صورة")
 
     console.log("image uploaded successfully")
   }
 
   // Delete Post Handler
-  const deletePostHandler = () => {
+  const deletePostHandlerpost = () => {
     swal({
-      title: "Are you sure?",
+      title: "Are you sure? نكمها لقحبة ",
       text: "Once deleted, you will not be able to recover this post!",
       icon: "warning",
       buttons: true,
       dangerMode: true,
     }).then((willDelete) => {
       if (willDelete) {
+        Dispatch(deletedproduct(id));
         swal("post has been deleted!", {
           icon: "success",
         });
@@ -51,6 +52,8 @@ const PostDetails = () => {
   };
   return (
     <div className="post-details">
+      <div className="contenardetails">
+        
       <div className="post-details-image-wrapper">
         <img src={file ? URL.createObjectURL(file) : post?.image?.url} alt="" className="post-details-image" />
         <form onSubmit={updateImageSubmitHandler} className="update-post-image-form">
@@ -93,10 +96,12 @@ const PostDetails = () => {
             onClick={() => setUpdatePost(true)}
             className="bi bi-pencil-square"
           ></i>
-          <i onClick={deletePostHandler} className="bi bi-trash-fill"></i>
+          <i onClick={deletePostHandlerpost} className="bi bi-trash-fill"></i>
         </div>
       </div>
       <AddComment />
+      
+      </div>
       <CommentList comments={post?.comments} />
       {updatePost && (
         <UpdatePostModal post={post} setUpdatePost={setUpdatePost} />

@@ -19,7 +19,35 @@ const AddComment = () => {
     <form onSubmit={formSubmitHandler} className="add-comment">
       <input
         type="text"
-        placeholder="Add a comment"
+        placeholder="رقم الهاتف "
+        className="add-comment-input"
+        value={text}
+        onChange={e => setText(e.target.value)}
+      />
+      <input
+        type="text"
+        placeholder="الرقم الثاني  اختياري "
+        className="add-comment-input"
+        value={text}
+        onChange={e => setText(e.target.value)}
+      />
+      <input
+        type="text"
+        placeholder="الاسم واللقب"
+        className="add-comment-input"
+        value={text}
+        onChange={e => setText(e.target.value)}
+      />
+      <input
+        type="text"
+        placeholder="العنوان"
+        className="add-comment-input"
+        value={text}
+        onChange={e => setText(e.target.value)}
+      />
+            <input
+        type="text"
+        placeholder="ملاحظات او توصيات"
         className="add-comment-input"
         value={text}
         onChange={e => setText(e.target.value)}

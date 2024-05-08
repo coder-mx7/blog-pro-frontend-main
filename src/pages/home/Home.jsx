@@ -10,10 +10,13 @@ const Home = () => {
   const Dispatch = useDispatch();
   useEffect(() => {
     Dispatch(getposts());
+    setTimeout(() => {
+      if(!posts){
+      }
+    }, 1000);
   }, []); // تمرير مصفوفة فارغة كثاني معلم
   
   return (
-
     <section className="home">
       <div className="home-hearo-header">
         <div className="home-hero-header-layout">

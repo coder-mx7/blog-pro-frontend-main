@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import request from "../../utils/requst"
 import { postaction } from "../slices/postsSlices";
 
@@ -16,6 +17,28 @@ export function getposts() {
     }
   };
 }
+
+export function deletedproduct(id) {
+  return async (dispath,getState) => {
+    try {
+
+      const {data} = await request.delete(`api/posts/${id}`,
+      {
+        headers: {
+          Authorization: "Bearer " + getState().auth.user.token,
+        },
+      })
+
+      dispath(postaction.postdata(data))
+      dispath(getposts());
+      const Nav = useNavigate(); // From Submit Handler
+      Nav('/')
+    } catch (error) {
+      console.log(error);
+    }
+  };
+}
+
 
 export function getpostbyid(id) {
   return async (dispath,getState) => {
