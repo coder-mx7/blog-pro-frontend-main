@@ -17,13 +17,22 @@
   display: flex;
   align-items: center;
 }
-
-.top-logo {
-  height: 85%;
-  width: 100px;
-  position: relative;
-  right: -27px;
+.chatiimi-logo {
+  font-family: "Montserrat", sans-serif;
+  font-weight: bolder;
+  text-align: center;
 }
+
+.header-logo .logo-name {
+  font-size: 25px;
+  color: #000000;
+}
+
+.header-logo .logo-tagline {
+  font-size: 10px;
+  color: #3a0138;
+}
+
 .cart-header {
   font-size: 40px;
   color: chartreuse;
@@ -47,6 +56,7 @@
   align-items: center;
   flex-direction: row-reverse;
   z-index: 1000;
+  color: black;
 }
 
 .nav-link {
@@ -54,12 +64,16 @@
   cursor: pointer;
   font-size: 21px;
   font-weight: 500;
-  color: var(--white-color);
+  color: black;
   z-index: 1000;
 }
 
 .nav-link:hover {
-  color: var(--main-color);
+  background-color: black;
+  color: aqua;
+  border-bottom: black solid 2px ;
+  padding: 5px 4px;
+  border-radius: 5px;
 }
 
 .nav-link i {
@@ -94,7 +108,6 @@
 
   .header-menu {
     display: block;
-    margin-right: 20px;
   }
 
   .navbar {
@@ -122,23 +135,48 @@
 }
 
 /* user info for lgined */
-.header-right-info-user,
+
+.header-right{
+  border-left: 1.5px solid rgb(0, 0, 0);
+  padding-left: 10px;
+  height: 90%;
+}
+
+.header-right-info-user {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  height: 100%;
+  background-color: black;
+  border-radius: 15px;
+  border: aqua solid 1.5px;
+  min-width: 90px;
+  cursor: pointer;
+}
 .continaruser {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   position: relative;
+  height: 90%;
+  background-color: black;
+  border-radius: 15px;
+  min-width: 90px;
 }
 .user-info-header {
-  font-size: 21px;
+  font-size: 13.4px;
   font-weight: 500;
-  color: aliceblue;
-  margin: 0 0 0 20px;
+  color: rgb(3, 195, 229);
+  padding: 4px 5.5px;
+  text-align: center;
+  height: 100%;
 }
 .image-header-info {
-  width: 40px;
-  height: 40px;
+  width: 35px;
+  height: 35px;
   object-fit: cover;
   cursor: pointer;
   border-radius: 50%;

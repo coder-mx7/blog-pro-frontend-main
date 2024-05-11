@@ -60,7 +60,7 @@ html::-webkit-scrollbar-track {
 }
 
 html::-webkit-scrollbar-thumb {
-  background-color: #fd0a54;
+  background-color: #000000;
   border-radius: 15px;
   border: 1px solid black;
 }

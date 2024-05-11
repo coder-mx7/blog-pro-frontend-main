@@ -2,7 +2,8 @@ import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { logautuser } from "../../redux/apicalls/authapicalls";
-const HeaderRight = () => {
+import HeaderLeft from "./HeaderLeft";
+const HeaderRight = (setToggle, toggle) => {
   const { user } = useSelector((state) => state.auth);
   const [dropdown, setdropdown] = useState(false);
   const dispath = useDispatch();
@@ -18,11 +19,11 @@ const HeaderRight = () => {
     <div className="header-right">
       {user ? (
         <>
-          <div className="header-right-info-user">
-            <div
-              onClick={() => setdropdown((prv) => !prv)}
-              className="continaruser"
-            >
+          <div
+            onClick={() => setdropdown((prv) => !prv)}
+            className="header-right-info-user"
+          >
+            <div className="continaruser">
               <img
                 src={user.profilePhoto.url}
                 alt="user"
@@ -30,6 +31,7 @@ const HeaderRight = () => {
               />
               <span className="user-info-header">{user.username}</span>
             </div>
+              <HeaderLeft toggle={toggle} setToggle={setToggle} />
             {dropdown && (
               <div className="header-drop">
                 <div className="header-right-dropdown">

@@ -42,7 +42,7 @@ const CreatePost = () => {
   });
   return (
     <section className="create-post">
-      <h1 className="create-post-title">Create New Post</h1>
+      <h1 className="create-post-title">انشاء منتج جديد </h1>
       <form onSubmit={formSubmitHandler} className="create-post-form">
         <input
           onChange={(e) => setTitle(e.target.value)}
